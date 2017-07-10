@@ -28,6 +28,17 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
+  save(hero: Hero): void {
+    console.log(hero.$key);
+    this.heroService.update(hero);
+    this.location.back();
+  }
+
+  delete(hero: Hero): void {
+    console.log(hero.$key);
+    this.heroService.delete(hero);
+  }
+
   goBack(): void {
     this.location.back();
   }
