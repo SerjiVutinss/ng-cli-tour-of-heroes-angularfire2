@@ -29,14 +29,13 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(hero: Hero): void {
-    console.log(hero.$key);
     this.heroService.update(hero);
-    this.location.back();
+    this.goBack();
   }
 
   delete(hero: Hero): void {
-    console.log(hero.$key);
     this.heroService.delete(hero);
+    this.goBack();
   }
 
   goBack(): void {
