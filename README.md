@@ -1,6 +1,17 @@
 # NgCliTourOfHeroesAngularfire2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+[Angular CLI](https://github.com/angular/angular-cli) application based on [Angular Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes) which uses [AngularFire2](https://github.com/angular/angularfire2) as its backend.
+
+###### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+
+## Installation
+
+* Clone this repo
+* Upload `src/heroes.json` to your Firebase database
+  * ensure that `read: true` is set for this node
+* Create file `src/environment/firebase.ts` using `src/environments/firebase-sample.ts` as a template
+* Enter your Firebase application details into `src/environment/firebase.ts`
+* Install dependencies: `npm install`
 
 ## Development server
 
