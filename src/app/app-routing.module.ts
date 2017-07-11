@@ -1,9 +1,30 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent, HeroesComponent, HeroDetailComponent } from './components';
+import {
+    HomeComponent,
+    LoginComponent,
+    DashboardComponent,
+    HeroesComponent,
+    HeroDetailComponent
+} from './components';
+
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     {
         path: '',
         redirectTo: '/dashboard',
@@ -11,15 +32,18 @@ const routes: Routes = [
     },
     {
         path: 'heroes',
-        component: HeroesComponent
+        component: HeroesComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'hero-detail/:id',
-        component: HeroDetailComponent
+        component: HeroDetailComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
     }
 ];
 
