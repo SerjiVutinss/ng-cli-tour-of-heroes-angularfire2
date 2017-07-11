@@ -7,6 +7,7 @@
   <div>
     <label>name: </label>
     <input [(ngModel)]="hero.name" placeholder="name">
+    <input type="checkbox" [(ngModel)]="hero.isActive" placeholder="name">
   </div>
   <button (click)="goBack()">Back</button>
   <button (click)="save(hero)">Save</button>
