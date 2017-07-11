@@ -6,29 +6,40 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent, HeroesComponent, HeroDetailComponent } from './components';
+import {
+  HomeComponent,
+  LoginComponent,
+  DashboardComponent,
+  HeroesComponent,
+  HeroDetailComponent
+} from './components';
 
-import { HeroService } from './services';
+import { AuthService, HeroService } from './services';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent,
+    HomeComponent,
+    LoginComponent,
+    DashboardComponent,
     HeroesComponent,
-    DashboardComponent
+    HeroDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [HeroService],
+  providers: [AuthService, AuthGuard, HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
