@@ -15,6 +15,8 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
+  cbIsActive = false;
+
   constructor(
     private heroService: HeroService,
     private router: Router
@@ -32,11 +34,16 @@ export class HeroesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroService.create(name);
+    this.heroService.create(name, this.cbIsActive);
+    this.cbIsActive = false;
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  checkBoxOnClick(): void {
+    this.cbIsActive = !this.cbIsActive;
   }
 
   gotoDetail(): void {

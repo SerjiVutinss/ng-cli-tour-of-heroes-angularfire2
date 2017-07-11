@@ -33,19 +33,24 @@ export class HeroService {
     //.map(heroes => heroes.filter(hero => hero.id === id)[0]);
   }
 
-  create(name: string): void {
+  create(name: string, isActive: boolean): void {
     this.db.list('/heroes').push({
-      id: 100, name: name
+      id: 100, name: name, isActive: isActive
     });
   }
 
   update(hero: Hero): Promise<void> {
 
+    //let myKey: string = hero.$key;
+    //return this.db.object(`/heroes/{myKey}`).set(hero);
+
     // return this.db.list('/heroes')
     //   .update(hero.$key, { name: hero.name })
     //   .toPromise()
     //   .catch(this.handleError);
-    return this.heroes.update(hero.$key, { name: hero.name });
+    //this.heroes.update(hero.$key, { name: hero.name });
+    //return this.heroes.update(hero.$key, { isActive: hero.isActive });
+    return this.heroes.update(hero.$key, hero);
   }
 
   delete(hero: Hero): Promise<void> {
