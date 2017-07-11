@@ -20,8 +20,12 @@ export class AuthService {
     return this.user != null;
   }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // loginGoogle() {
+  //   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // }
+
+  loginEmailPassword(email: string, password: string): firebase.Promise<any> {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout() {

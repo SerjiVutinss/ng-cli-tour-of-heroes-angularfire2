@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AuthService } from '../../services';
 
 @Component({
@@ -10,6 +12,11 @@ import { AuthService } from '../../services';
 })
 export class LoginComponent implements OnInit {
 
+  public loginForm: FormGroup;
+
+  success: boolean;
+  error: string;
+
   constructor(
     public authService: AuthService,
     private router: Router
@@ -18,8 +25,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(): void {
-    this.authService.login();
-  }
+  // loginGoogle(): void {
+  //   this.authService.loginGoogle();
+  // }
 
+  loginEmailPassword(email: string, password: string): void {
+    this.authService.loginEmailPassword(email.trim(), password.trim());
+  }
 }
