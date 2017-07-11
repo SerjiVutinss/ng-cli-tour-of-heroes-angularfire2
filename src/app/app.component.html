@@ -1,9 +1,36 @@
-<h1>{{title}} - AppComponent</h1>
+<h1>{{title}}</h1>
+<h4 *ngIf="isLoggedIn">-> {{ (authService.user | async)?.email }} logged in</h4>
 
-<nav>
+<!--<nav *ngIf="isLoggedIn" class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a class="navbar-brand" href="#">Order View</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/" routerLinkActive="active" (click)="isCollapsed = true">Home</a></li>
+                <li><a routerLink="/dashboard" routerLinkActive="active" (click)="isCollapsed = true">Dashboard</a></li>
+                <li><a routerLink="/heroes" routerLinkActive="active" (click)="isCollapsed = true">Heroes</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-divider"></li>
+                <li><a>{{ (authService.user | async)?.email }}</a></li>
+                <li><a href="#" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>-->
+
+<nav *ngIf="isLoggedIn">
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
     <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a href="#" (click)="logout()">Logout</a>
 </nav>
 
 <router-outlet></router-outlet>
