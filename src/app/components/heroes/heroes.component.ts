@@ -29,7 +29,11 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => {this.heroes = heroes, null , this.isLoading = false});
+      .subscribe(heroes => {
+        this.heroes = heroes,
+          null,
+          this.isLoading = false
+      });
   }
 
   add(name: string): void {
