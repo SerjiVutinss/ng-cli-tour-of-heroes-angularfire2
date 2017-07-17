@@ -1,22 +1,44 @@
-.container {
-    float: left;
+.hero-card {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    margin: .5em;
+    padding: 1em;
+    height: 1.6em;
+    border-radius: 4px;
 }
 
+.hero-card:hover {
+    background-color: #DDD;
+}
+
+.heroes {
+    float: left;
+    width: 100%;
+}
+
+
+/*.container {
+    float: left;
+}*/
+
 .selected-hero {
-    float: right;
+    margin-left: 50px;
+    float: left;
 }
 
 .selected {
     background-color: #CFD8DC !important;
     color: white;
 }
-.heroes {
+/*.heroes {
     float: left;
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: 15em;
 }
+
 .heroes li {
     cursor: pointer;
     position: relative;
@@ -53,4 +75,4 @@
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-}
+}*/

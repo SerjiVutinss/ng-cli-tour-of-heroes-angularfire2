@@ -16,6 +16,7 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 
   cbIsActive = false;
+  isLoading: Boolean = true;
 
   constructor(
     private heroService: HeroService,
@@ -28,7 +29,7 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => {this.heroes = heroes, null , this.isLoading = false});
   }
 
   add(name: string): void {
@@ -40,6 +41,7 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.gotoDetail();
   }
 
   checkBoxOnClick(): void {

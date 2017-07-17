@@ -1,36 +1,83 @@
-<h1>{{title}}</h1>
-<h4 *ngIf="isLoggedIn">-> {{ (authService.user | async)?.email }} logged in</h4>
+<md-toolbar color="primary">
 
-<!--<nav *ngIf="isLoggedIn" class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-            <a class="navbar-brand" href="#">Order View</a>
-        </div>
+    <span>{{ title }}</span>
+    <span class="example-spacer"></span>
+    <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+    
+</md-toolbar>
 
-        <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
-            <ul class="nav navbar-nav">
-                <li><a routerLink="/" routerLinkActive="active" (click)="isCollapsed = true">Home</a></li>
-                <li><a routerLink="/dashboard" routerLinkActive="active" (click)="isCollapsed = true">Dashboard</a></li>
-                <li><a routerLink="/heroes" routerLinkActive="active" (click)="isCollapsed = true">Heroes</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-divider"></li>
-                <li><a>{{ (authService.user | async)?.email }}</a></li>
-                <li><a href="#" (click)="logout()">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>-->
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item [routerLink]="['/dashboard']"> Dashboard </button>
+  <button md-menu-item [routerLink]="['/heroes']"> Heroes </button>
+  <button md-menu-item (click)="logout()"> Logout </button>
+</md-menu>
 
-<nav *ngIf="isLoggedIn">
+<router-outlet></router-outlet>
+
+
+<!--<md-sidenav-container>
+  <md-sidenav #sidenav class="sidenav">
+    <md-nav-list>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/']">
+        <md-icon md-list-icon>home</md-icon>
+        <span md-line>Home</span>
+        <span md-line class="secondary">Home</span>
+      </a>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/dashboard']">
+        <md-icon md-list-icon>list</md-icon>
+        <span md-line>Dashboard</span>
+        <span md-line class="secondary">Dashboard</span>
+      </a>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/heroes']">
+        <md-icon md-list-icon>bookmark</md-icon>
+        <span md-line>Heroes</span>
+        <span md-line class="secondary">Heroes</span>
+      </a>
+      <a md-list-item (click)="sidenav.close()" (click)="logout()">
+        <md-icon md-list-icon>exit_to_app</md-icon>
+        <span md-line>Logout</span>
+        <span md-line class="secondary">Logout</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar [color]="primary">
+
+    <button *ngIf="isLoggedIn" md-icon-button (click)="sidenav.open()">
+        <md-icon>menu</md-icon>
+      </button>
+
+    <span>{{title}}</span>
+    <span class="fill-remaining-space"></span>
+    <span>(Firebase + Auth)</span>
+  </md-toolbar>
+
+
+  <div class="my-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>-->
+
+
+
+<!--<h1>{{title}}</h1>-->
+
+<!--<button md-button>Click me!</button>
+
+<md-tab-group>
+  <md-tab label="Tab 1">Content 1</md-tab>
+  <md-tab label="Tab 2">Content 2</md-tab>
+</md-tab-group>-->
+
+
+
+<!--<nav *ngIf="isLoggedIn">
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
     <a routerLink="/login" routerLinkActive="active">Login</a>
-    <a href="#" (click)="logout()">Logout</a>
-</nav>
+    <a (click)="logout()">Logout</a>
+</nav>-->
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
+
+<!--<router-outlet></router-outlet>-->

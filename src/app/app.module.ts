@@ -11,16 +11,24 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
+
 import {
   HomeComponent,
   LoginComponent,
   DashboardComponent,
   HeroesComponent,
-  HeroDetailComponent
+  HeroDetailComponent,
+  MaterialTestComponent,
+  AlertDialogComponent
 } from './components';
 
 import { AuthService, HeroService } from './services';
 import { AuthGuard } from './auth.guard';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule, MdDialogModule, MdMenuModule, MdButtonModule, MdTabsModule, MdSidenavModule } from '@angular/material';
+
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -30,6 +38,8 @@ import { AuthGuard } from './auth.guard';
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
+    MaterialTestComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +47,18 @@ import { AuthGuard } from './auth.guard';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MaterialModule,
+    MdDialogModule,
+    MdMenuModule,
+    MdButtonModule,
+    MdTabsModule,
+    MdSidenavModule
+  ],
+  entryComponents: [
+    AlertDialogComponent
   ],
   providers: [AuthService, AuthGuard, HeroService],
   bootstrap: [AppComponent]
