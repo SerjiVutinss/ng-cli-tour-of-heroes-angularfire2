@@ -1,35 +1,11 @@
-<!--<div class="container">-->
-<!--Add Hero-->
-<!--<div>
-    <label>Hero name:</label>
-    <input #heroName />
-    <input type="checkbox" [checked]="cbIsActive" (click)="checkBoxOnClick()"/>
-    <button (click)="add(heroName.value); 
-      heroName.value='';">
-    Add
-  </button>
-  </div>-->
-<!--Heroes List-->
-<!--<ul class="heroes">-->
 <div class="custom-spinner" *ngIf="isLoading">
   <md-spinner></md-spinner>
   Loading data...
 </div>
 
-  <div class="heroes">
-    <md-card class="hero-card" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-      <!--<span class="badge">{{ hero.id }}</span>-->
-      <span> {{ hero.name }} </span>
-      <span> {{ hero.isActive }} </span>
-    </md-card>
-  </div>
-  <!--</ul>-->
-
-  <!--Selected Hero-->
-  <!--<div class="selected-hero" *ngIf="selectedHero">
-  <h2>
-    {{ selectedHero.name | uppercase }} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
-</div>-->
-  <!--</div>-->
+<div class="heroes">
+  <md-card class="hero-card" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span> {{ hero.name }} </span>
+    <span> {{ hero.isActive }} </span>
+  </md-card>
+</div>

@@ -1,4 +1,16 @@
-[class*='col-'] {
+md-card {
+    box-shadow: none;
+    transition: box-shadow 1s;
+}
+
+md-card:hover {
+    /*background-color: #FFF!important;
+    color: #3F51B5!important;*/
+    box-shadow: 2px 2px 2px #FF4081;
+}
+
+
+/*[class*='col-'] {
     float: left;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -58,4 +70,4 @@ h4 {
     .module {
     min-width: 60px;
     }
-}
+}*/

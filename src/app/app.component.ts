@@ -45,7 +45,7 @@ export class AppComponent {
           //console.log(auth);
           this.router.navigate(['/home']);
 
-          this.openDialog('Logged in!');
+          //this.openDialog('Logged in!');
         }
       }
     );
@@ -60,7 +60,7 @@ export class AppComponent {
     this.authService.logout();
     this.isLoggedIn = false;
     this.router.navigate(['login']);
-    this.openDialog('Logged out!');
+    //this.openDialog('Logged out!');
   }
 
 }

@@ -1,4 +1,3 @@
-<!--Hero Detail-->
 <md-card *ngIf="hero">
   <md-card-title>{{ hero.name }} details!</md-card-title>
   <md-card-subtitle>
@@ -8,7 +7,6 @@
     <md-input-container>
       <input mdInput [(ngModel)]="hero.name" name="name" id="name" placeholder="name" />
     </md-input-container>
-      <!--<input mdInput type="checkbox" [(ngModel)]="hero.isActive" name="active" placeholder="name"/>-->
       <md-checkbox [(ngModel)]="hero.isActive">Active?</md-checkbox>
   </md-card-content>
   <md-card-actions>
