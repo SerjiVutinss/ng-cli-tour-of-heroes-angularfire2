@@ -1,8 +1,14 @@
-<h3>Top Heroes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let hero of heroes"  [routerLink]="['/hero-detail', hero.$key]"  class="col-1-4">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
-    </div>
-  </a>
+<div class="custom-spinner" *ngIf="isLoading">
+  <md-spinner></md-spinner>
+  Loading data...
 </div>
+
+<md-grid-list cols="4" rowHeight="100px">
+  <md-grid-tile *ngFor="let hero of heroes" [colspan]="1" [rowspan]="1">
+    <a [routerLink]="['/hero-detail', hero.$key]">
+      <md-card class="background-primary-color white-text">
+        {{hero.name}}
+      </md-card>
+    </a>
+  </md-grid-tile>
+</md-grid-list>

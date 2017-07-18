@@ -6,7 +6,8 @@ import {
     LoginComponent,
     DashboardComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MaterialTestComponent
 } from './components';
 
 import { AuthGuard } from './auth.guard';
@@ -14,7 +15,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/material-test',
         pathMatch: 'full'
     },
     {
@@ -42,6 +43,11 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'material-test',
         component: DashboardComponent,
         canActivate: [AuthGuard]
     }

@@ -1,15 +1,17 @@
-<!--Hero Detail-->
-<div *ngIf="hero">
-  <h2>{{ hero.name }} details!</h2>
-  <div>
-    <label>id: </label>{{ hero.id }}
-  </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name">
-    <input type="checkbox" [(ngModel)]="hero.isActive" placeholder="name">
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save(hero)">Save</button>
-  <button (click)="delete(hero)">Delete</button>
-</div>
+<md-card *ngIf="hero">
+  <md-card-title>{{ hero.name }} details!</md-card-title>
+  <md-card-subtitle>
+    id: {{ hero.$key }}
+  </md-card-subtitle>
+  <md-card-content>
+    <md-input-container>
+      <input mdInput [(ngModel)]="hero.name" name="name" id="name" placeholder="name" />
+    </md-input-container>
+      <md-checkbox [(ngModel)]="hero.isActive">Active?</md-checkbox>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="goBack()">Back</button>
+    <button md-button (click)="save(hero)">Save</button>
+    <button md-button (click)="delete(hero)">Delete</button>
+  </md-card-actions>
+</md-card>

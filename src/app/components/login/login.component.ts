@@ -14,8 +14,11 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
 
+  username: string;
+  password: string;
+
   success: boolean;
-  error: string;
+  errorMsg: string = '';
 
   constructor(
     public authService: AuthService,
@@ -29,7 +32,13 @@ export class LoginComponent implements OnInit {
   //   this.authService.loginGoogle();
   // }
 
-  loginEmailPassword(email: string, password: string): void {
-    this.authService.loginEmailPassword(email.trim(), password.trim());
-  }
+  loginEmailPassword(): void {
+    this.authService.loginEmailPassword(this.username.trim(), this.password.trim()).catch(error => {
+      this.errorMsg = "Login failed!";
+    });
+  };
 }
+  // loginEmailPassword(): void {
+  //   console.log(this.username);
+  //   console.log(this.password);
+  // }

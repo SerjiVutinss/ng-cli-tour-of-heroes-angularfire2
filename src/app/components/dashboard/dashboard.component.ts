@@ -11,11 +11,16 @@ import { HeroService } from '../../services';
 export class DashboardComponent implements OnInit {
 
   heroes: Hero[];
+  isLoading: Boolean = true;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => {
+        this.heroes = heroes.slice(1, 5),
+          null,
+          this.isLoading = false
+      });
   }
 }

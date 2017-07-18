@@ -1,21 +1,20 @@
-<div>
-  <h1>Login...</h1>
-
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input id="email" #email type="text" class="form-control" placeholder="Email" ngControl="email">
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input id="password" #password type="password" class="form-control" placeholder="Password" ngControl="password">
-  </div>
-
-  <!--<div class="form-group">
-    <button type="submit" (click)="loginEmailPassword(email.value, password.value); email.value=''; password.value=''" class="btn btn-primary">Login
-      </button>
-  </div>-->
-
-  <!--<button class="btn btn-default" (click)="loginGoogle()">Login with Google</button>-->
-  <button class="btn btn-default" (click)="loginEmailPassword(email.value, password.value)">Login with Email and Password</button>
-</div>
+<form class="centered" role="form" (submit)="loginEmailPassword()">
+  <br>
+  <md-input-container>
+    <input mdInput type="text" required [(ngModel)]="username" id="username" name="username">
+    <md-placeholder>
+      <i class="material-icons app-input-icon">face</i>Username
+    </md-placeholder>
+  </md-input-container>
+  <br><br>
+  <md-input-container>
+    <input mdInput type="password" required [(ngModel)]="password" id="password" name="password">
+    <md-placeholder>
+      <i class="material-icons app-input-icon">lock_open</i>Password
+    </md-placeholder>
+  </md-input-container>
+  <br><br>
+  <button md-raised-button color="warn" type="submit" name="action">LOGIN</button>
+  <br><br>
+  <span id="err"><small>{{errorMsg}}</small></span>
+</form>
